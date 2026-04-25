@@ -1,4 +1,4 @@
-# Alex Morgan — Developer Portfolio
+# Chimeremeze Odinachi — Developer Portfolio
 
 A clean, minimal, techy portfolio website built with semantic HTML5, CSS3, and vanilla JavaScript.
 
@@ -33,7 +33,7 @@ yourname_portfolio/
 ## How to Customise
 
 1. **Replace images** — Drop your photos into `/images/` with the exact filenames listed above
-2. **Update name** — Search/replace `Alex Morgan` and `AM` throughout `index.html`
+2. **Update name** — Search/replace `Chimeremeze Odinachi` and `AM` throughout `index.html`
 3. **Update content** — Edit the About paragraphs, skills list, project details, and contact info in `index.html`
 4. **Change accent colour** — Edit `--accent` in the `:root` block of `styles.css`
 5. **Swap fonts** — Change the Google Fonts import URL and update `--font-heading` / `--font-body` CSS variables
