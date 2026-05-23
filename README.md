@@ -30,13 +30,6 @@ yourname_portfolio/
 - **Hover effects** on skill cards, project cards, and buttons
 - **Dark techy theme** with terminal-inspired aesthetics
 
-## How to Customise
-
-1. **Replace images** — Drop your photos into `/images/` with the exact filenames listed above
-2. **Update name** — Search/replace `Chimeremeze Odinachi` and `AM` throughout `index.html`
-3. **Update content** — Edit the About paragraphs, skills list, project details, and contact info in `index.html`
-4. **Change accent colour** — Edit `--accent` in the `:root` block of `styles.css`
-5. **Swap fonts** — Change the Google Fonts import URL and update `--font-heading` / `--font-body` CSS variables
 
 ## Colour Palette
 
@@ -53,11 +46,3 @@ yourname_portfolio/
 
 - HTML5 (semantic)
 - CSS3 (custom properties, grid, flexbox, media queries)
-- Vanilla JavaScript (Intersection Observer, smooth scroll, hamburger)
-- [Font Awesome 6](https://fontawesome.com/) — icons
-- [DevIcons](https://devicon.dev/) — tech/language icons
-- [Google Fonts](https://fonts.google.com/) — Syne + Space Mono
-
-## License
-
-Free to use for personal portfolios. Please don't redistribute as a template.
