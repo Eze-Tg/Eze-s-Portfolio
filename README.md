@@ -6,16 +6,16 @@ A clean, minimal, techy portfolio website built with semantic HTML5, CSS3, and v
 
 ```
 yourname_portfolio/
-├── index.html          ← Main HTML file
+├── index.html        
 ├── css/
-│   └── styles.css      ← All styles (variables, layout, responsive)
+│   └── styles.css      
 ├── images/
-│   ├── profile.jpg     ← Hero section photo (replace with yours)
-│   ├── about.jpg       ← About section photo (replace with yours)
-│   ├── project1.jpg    ← Project 1 thumbnail
-│   ├── project2.jpg    ← Project 2 thumbnail
-│   ├── project3.jpg    ← Project 3 thumbnail
-│   └── project4.jpg    ← Project 4 thumbnail
+│   ├── profile.jpg     
+│   ├── about.jpg       
+│   ├── project1.jpg    
+│   ├── project2.jpg    
+│   ├── project3.jpg    
+│   └── project4.jpg    
 └── README.md
 ```
 
