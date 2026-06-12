@@ -151,9 +151,10 @@ input, textarea { font-family: var(--font-body); }
 #navbar {
   position: fixed;
   top: 0; left: 0; right: 0;
+  border-bottom: 1px solid var(--border);
+  background: rgba(11, 14, 20, 92);
   height: var(--nav-height);
   z-index: 1000;
-  background: rgba(11, 14, 20, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid transparent;
@@ -208,12 +209,18 @@ input, textarea { font-family: var(--font-body); }
   transition: width var(--transition);
 }
 .nav-link:hover,
-.nav-link.active {
-  color: var(--text-primary);
-}
 .nav-link:hover::after,
 .nav-link.active::after {
   width: 100%;
+}
+
+.nav-links a {
+  position: relative;
+}
+
+/* When a link is clicked, it removes focus from checkbox naturally */
+.nav-links a:focus {
+  outline: none;
 }
 
 /* Hamburger */
@@ -235,6 +242,82 @@ input, textarea { font-family: var(--font-body); }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+#menu-toggle {
+  display: none;
+}
+
+#menu-toggle:checked ~ .nav-links {
+  transform: translateX(0);
+}
+
+
+#menu-toggle:checked + .hamburger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked + .hamburger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+#menu-toggle:checked ~ .nav-links {
+  transform: translateX(0);
+}
+
+/* When any nav link is clicked, close menu via :target trick */
+.nav-links a {
+  display: block;
+}
+
+/* Auto-close when a nav link is clicked (CSS trick using focus state fallback) */
+.nav-links a:active {
+  pointer-events: auto;
+}
+
+.nav-links a {
+  pointer-events: auto;
+}
+
+
+.nav-link {
+  color: var(--text-secondary);
+  transition: color var(--transition);
+}
+
+/* highlight active section based on URL hash */
+:target ~ header .nav-link[href="#home"],
+:target#home ~ header .nav-link[href="#home"],
+:target#about ~ header .nav-link[href="#about"],
+:target#skills ~ header .nav-link[href="#skills"],
+:target#projects ~ header .nav-link[href="#projects"],
+:target#contact ~ header .nav-link[href="#contact"] {
+  color: var(--accent);
+}
+
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 998;
+  cursor: pointer;
+}
+
+
+/* show overlay when menu is open */
+#menu-toggle:checked ~ .nav-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 
 /* ══════════════════════════════════════════════════════════════
@@ -389,11 +472,11 @@ input, textarea { font-family: var(--font-body); }
   grid-template-columns: 380px 1fr;
   gap: 4rem;
   align-items: center;
-  opacity: 0;
-  transform: translateY(24px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.about-grid.revealed { opacity: 1; transform: none; }
+/* .about-grid.revealed { opacity: 1; transform: none; } */
 
 .about-photo-wrap {
   position: relative;
@@ -483,13 +566,13 @@ input, textarea { font-family: var(--font-body); }
   gap: 0.75rem;
   cursor: default;
   transition: all var(--transition);
-  opacity: 0;
-  transform: translateY(16px);
-}
-.skill-card.revealed {
   opacity: 1;
   transform: none;
 }
+
+
+
+
 .skill-card:hover {
   border-color: var(--accent);
   background: var(--bg-card-hover);
@@ -532,13 +615,10 @@ input, textarea { font-family: var(--font-body); }
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all var(--transition);
-  opacity: 0;
-  transform: translateY(20px);
-}
-.project-card.revealed {
   opacity: 1;
   transform: none;
 }
+
 .project-card:hover {
   border-color: var(--border-light);
   box-shadow: var(--shadow-md);
@@ -641,11 +721,11 @@ input, textarea { font-family: var(--font-body); }
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
-  opacity: 0;
-  transform: translateY(24px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.contact-grid.revealed { opacity: 1; transform: none; }
+/* .contact-grid.revealed { opacity: 1; transform: none; } */
 
 /* Form */
 .contact-form {
@@ -846,8 +926,6 @@ input, textarea { font-family: var(--font-body); }
     transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 999;
   }
-  .nav-links.open { transform: translateX(0); }
-  .nav-link { font-size: 1rem; }
 
   /* Hero */
   .hero {
