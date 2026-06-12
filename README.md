@@ -1,11 +1,11 @@
 # Chimeremeze Odinachi — Developer Portfolio
 
-A clean, minimal, techy portfolio website built with semantic HTML5, CSS3, and vanilla JavaScript.
+A clean, minimal, techy portfolio website built with semantic HTML5 and CSS3.
 
 ## Project Structure
 
 ```
-yourname_portfolio/
+Eze-s-Portfolio/
 ├── index.html        
 ├── css/
 │   └── styles.css      
